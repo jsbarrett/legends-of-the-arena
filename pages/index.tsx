@@ -38,9 +38,10 @@ const TheLore = () => (
       </div>
       <div className='w-full text-gray-200 bg-gray-900'>
         <div className='py-24 lg:py-48 px-4 sm:px-12 lg:px-24'>
-          <h3 className='text-5xl font-semibold text-center'>LORE</h3>
+          <h3 className='text-5xl font-semibold text-center'>Tier 1:</h3>
+          <h4 className='text-3xl font-medium text-center mt-12'>Dull, rusty, in disrepair, perhaps not even a weapon</h4>
           <p className='text-lg sm:text-xl mt-12 leading-loose sm:leading-loose'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            Only the charitable would call this armor; the uncharitable would call it a violation of the public indecency laws or the litter ordinances, depending on your posture. You avoid thinking of can openers while wearing it, for safety’s sake.
           </p>
         </div>
       </div>
@@ -49,14 +50,60 @@ const TheLore = () => (
     <div className='flex flex-col md:flex-row'>
       <div className='w-full text-gray-200 bg-gray-900'>
         <div className='py-24 lg:py-48 px-4 sm:px-12 lg:px-24'>
-          <h3 className='text-5xl font-semibold text-center'>LORE</h3>
+          <h3 className='text-5xl font-semibold text-center'>Tier 2:</h3>
+          <h4 className='text-3xl font-medium text-center mt-12'>Low-quality, for a conscript</h4>
           <p className='text-lg sm:text-xl mt-12 leading-loose sm:leading-loose'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            On the Mohs scale, this unalloyed ode to metallurgy rates just below “imitation gladius”. When they assigned you to it, it came with a complimentary metal detector, compliments of the janitorial crew.
           </p>
         </div>
       </div>
       <div className='bg-gray-800 w-full flex items-center justify-center text-gray-300'>
         <div className='border border-solid border-gray-300 py-2 px-4'>ARTWORK HERE</div>
+      </div>
+    </div>
+
+    <div className='flex flex-col md:flex-row'>
+      <div className='bg-gray-800 w-full flex items-center justify-center text-gray-300'>
+        <div className='border border-solid border-gray-300 py-2 px-4'>ARTWORK HERE</div>
+      </div>
+      <div className='w-full text-gray-200 bg-gray-900'>
+        <div className='py-24 lg:py-48 px-4 sm:px-12 lg:px-24'>
+          <h3 className='text-5xl font-semibold text-center'>Tier 3:</h3>
+          <h4 className='text-3xl font-medium text-center mt-12'>Effective, for standard infantry</h4>
+          <p className='text-lg sm:text-xl mt-12 leading-loose sm:leading-loose'>
+            With great power comes unfeigned concern for your welfare. Inside this testament to the power of a good welding torch, neither beasts nor Huns nor the stomach flu keep you from swiftly dispatching your appointed foes, although acid rain might.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div className='flex flex-col md:flex-row'>
+      <div className='w-full text-gray-200 bg-gray-900'>
+        <div className='py-24 lg:py-48 px-4 sm:px-12 lg:px-24'>
+          <h3 className='text-5xl font-semibold text-center'>Tier 4:</h3>
+          <h4 className='text-3xl font-medium text-center mt-12'>High-quality, for elite infantry</h4>
+          <p className='text-lg sm:text-xl mt-12 leading-loose sm:leading-loose'>
+            [This] is what you showed them to finagle your life insurance, not the tinfoil worn by you and those you slew along the way. Those folks’ policies have since bankrupted your underwriter, which on reflection someone should have seen coming.
+          </p>
+        </div>
+      </div>
+      <div className='bg-gray-800 w-full flex items-center justify-center text-gray-300'>
+        <div className='border border-solid border-gray-300 py-2 px-4'>ARTWORK HERE</div>
+      </div>
+    </div>
+
+    <div className='flex flex-col md:flex-row'>
+      <div className='bg-gray-800 w-full flex items-center justify-center text-gray-300'>
+        <div className='border border-solid border-gray-300 py-2 px-4'>ARTWORK HERE</div>
+      </div>
+      <div className='w-full text-gray-200 bg-gray-900'>
+        <div className='py-24 lg:py-48 px-4 sm:px-12 lg:px-24'>
+          <h3 className='text-5xl font-semibold text-center'>Tier 5:</h3>
+          <h4 className='text-3xl font-medium text-center mt-12'>Mastercrafted, for a general or aristocrat</h4>
+          <p className='text-lg sm:text-xl mt-12 leading-loose sm:leading-loose'>
+            In high society, armor is chiefly a statement of pedigree. Caesar, for example, has nicer armor, but only because he was accidentally born divine, whereas you’ve begun collecting tithes from your admirers just to get some personal space.
+          </p>
+        </div>
       </div>
     </div>
   </div>
