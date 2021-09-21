@@ -15,14 +15,50 @@ const pictures = [
   { id: '12' },
 ]
 
+const quotes = [
+  'Closer now that I might slay thee!',
+  'A stab to the groin I fancy!',
+  'Feelest a shriveling in thy soul?',
+  'Like a toad shall I reave thee!',
+  'Gird thy soul straitly!',
+  'I shall have thy knucklebones for dice!',
+  'I glory in thy residue!',
+  'A fool and his innards be soon parted.',
+  'An hearty helping of death for thee!',
+]
+
+const gladiators = [
+  { id: '1', name: 'Dimachaerus', img: '/Dimachaerus.png', },
+  { id: '2', name: 'Gladiatrix', img: '/Gladiatrix.png', },
+  { id: '3', name: 'Laquearius', img: '/Laquearius.png', },
+  { id: '4', name: 'Malleus', img: '/Malleus.png', },
+  { id: '5', name: 'Parmularius', img: '/Parmularius.png', },
+  { id: '6', name: 'Retiarius', img: '/Retiarius.png', },
+  { id: '7', name: 'Scutarius', img: '/Scutarius.png', },
+  { id: '8', name: 'Velitus', img: '/Velitus.png', },
+]
+
 const TheCollection = () => (
   <div className='flex flex-col items-center justify-center'>
     <h2 className='text-white text-5xl lg:text-7xl font-bold text-center' style={{ textShadow: '0 0 10px black' }}>THE COLLECTION</h2>
 
     <div className='mt-24 lg:mt-48 w-full max-w-screen-xl'>
       <ul className='px-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center gap-4 lg:gap-8 items-center'>
-        {pictures.map(picture => (
-        <li key={picture.id} className='bg-gray-400 w-full max-w-xs mx-auto h-96 rounded'>
+        {gladiators.map((gladiator, i) => (
+        <li
+          key={gladiator.id}
+          className='bg-gray-500 w-full max-w-xs mx-auto h-96 rounded relative'
+          style={{ backgroundImage: `url("${gladiator.img}")`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <div className='p-2 text-white'>
+            {quotes[i]}
+          </div>
+          {/* <div */}
+          {/*   style={{ position: 'absolute', top: '3rem', left: '5.5rem' }} */}
+          {/*   className='w-4 h-4'> */}
+          {/*   <svg viewBox='0 0 100 100'> */}
+          {/*     <path d='M25,0 100,100' fill='none' stroke='white' strokeWidth='4' /> */}
+          {/*   </svg> */}
+          {/* </div> */}
         </li>
         ))}
       </ul>
