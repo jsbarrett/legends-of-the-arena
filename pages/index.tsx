@@ -1,19 +1,19 @@
 import type { NextPage } from 'next'
 
-const pictures = [
-  { id: '1' },
-  { id: '2' },
-  { id: '3' },
-  { id: '4' },
-  { id: '5' },
-  { id: '6' },
-  { id: '7' },
-  { id: '8' },
-  { id: '9' },
-  { id: '10' },
-  { id: '11' },
-  { id: '12' },
-]
+// const pictures = [
+//   { id: '1' },
+//   { id: '2' },
+//   { id: '3' },
+//   { id: '4' },
+//   { id: '5' },
+//   { id: '6' },
+//   { id: '7' },
+//   { id: '8' },
+//   { id: '9' },
+//   { id: '10' },
+//   { id: '11' },
+//   { id: '12' },
+// ]
 
 const quotes = [
   'Closer now that I might slay thee!',
@@ -28,14 +28,62 @@ const quotes = [
 ]
 
 const gladiators = [
-  { id: '1', name: 'Dimachaerus', img: '/Dimachaerus.png', speech: { top: '3.5rem', left: '5.5rem' } },
-  { id: '2', name: 'Gladiatrix', img: '/Gladiatrix.png', speech: { top: '4rem', left: '4.5rem' } },
-  { id: '3', name: 'Laquearius', img: '/Laquearius.png', speech: { top: '3.5rem', left: '5.5rem' } },
-  { id: '4', name: 'Malleus', img: '/Malleus.png', speech: { top: '3.5rem', left: '5.5rem' } },
-  { id: '5', name: 'Parmularius', img: '/Parmularius.png', speech: { top: '3.5rem', left: '5.5rem' } },
-  { id: '6', name: 'Retiarius', img: '/Retiarius.png', speech: { top: '3.5rem', left: '5.5rem' } },
-  { id: '7', name: 'Scutarius', img: '/Scutarius.png', speech: { top: '3.5rem', left: '5.5rem' } },
-  { id: '8', name: 'Velitus', img: '/Velitus.png', speech: { top: '3.5rem', left: '5.5rem' } },
+  {
+    id: '1',
+    name: 'Dimachaerus',
+    img: '/Dimachaerus.png',
+    speech: { top: '3.5rem', left: '5.5rem' },
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  },
+  {
+    id: '2',
+    name: 'Gladiatrix',
+    img: '/Gladiatrix.png',
+    speech: { top: '4rem', left: '4.5rem' },
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  },
+  {
+    id: '3',
+    name: 'Laquearius',
+    img: '/Laquearius.png',
+    speech: { top: '3.5rem', left: '5.5rem' },
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  },
+  {
+    id: '4',
+    name: 'Malleus',
+    img: '/Malleus.png',
+    speech: { top: '3.5rem', left: '5.5rem' },
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  },
+  {
+    id: '5',
+    name: 'Parmularius',
+    img: '/Parmularius.png',
+    speech: { top: '3.5rem', left: '5.5rem' },
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  },
+  {
+    id: '6',
+    name: 'Retiarius',
+    img: '/Retiarius.png',
+    speech: { top: '3.5rem', left: '5.5rem' },
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  },
+  {
+    id: '7',
+    name: 'Scutarius',
+    img: '/Scutarius.png',
+    speech: { top: '3.5rem', left: '5.5rem' },
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  },
+  {
+    id: '8',
+    name: 'Velitus',
+    img: '/Velitus.png',
+    speech: { top: '3.5rem', left: '5.5rem' },
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+  },
 ]
 
 const TheCollection = () => (
@@ -47,7 +95,7 @@ const TheCollection = () => (
         {gladiators.map((gladiator, i) => (
         <li
           key={gladiator.id}
-          className='bg-gray-500 w-full max-w-xs mx-auto h-96 rounded relative'
+          className='group bg-gray-500 w-full max-w-xs mx-auto h-96 rounded relative overflow-hidden'
           style={{ backgroundImage: `url("${gladiator.img}")`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className='p-2 text-white'>
             {quotes[i]}
@@ -58,6 +106,14 @@ const TheCollection = () => (
             <svg viewBox='0 0 100 100'>
               <path d='M25,0 Q50,75 100,100' fill='none' stroke='white' strokeWidth='4' />
             </svg>
+          </div>
+
+          <div
+            style={{ backgroundImage: 'url(cardback.jpg)' }}
+            className='absolute inset-0 px-12 py-9 bg-gray-900 bg-contain font-semibold bg-center bg-no-repeat duration-200 transform translate-y-full group-hover:translate-y-0'>
+            <div className='overflow-auto overscroll-none leading-none h-full w-full'>
+              {gladiator.details}
+            </div>
           </div>
         </li>
         ))}
