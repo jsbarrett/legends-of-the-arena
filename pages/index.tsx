@@ -28,14 +28,14 @@ const quotes = [
 ]
 
 const gladiators = [
-  { id: '1', name: 'Dimachaerus', img: '/Dimachaerus.png', },
-  { id: '2', name: 'Gladiatrix', img: '/Gladiatrix.png', },
-  { id: '3', name: 'Laquearius', img: '/Laquearius.png', },
-  { id: '4', name: 'Malleus', img: '/Malleus.png', },
-  { id: '5', name: 'Parmularius', img: '/Parmularius.png', },
-  { id: '6', name: 'Retiarius', img: '/Retiarius.png', },
-  { id: '7', name: 'Scutarius', img: '/Scutarius.png', },
-  { id: '8', name: 'Velitus', img: '/Velitus.png', },
+  { id: '1', name: 'Dimachaerus', img: '/Dimachaerus.png', speech: { top: '3.5rem', left: '5.5rem' } },
+  { id: '2', name: 'Gladiatrix', img: '/Gladiatrix.png', speech: { top: '4rem', left: '4.5rem' } },
+  { id: '3', name: 'Laquearius', img: '/Laquearius.png', speech: { top: '3.5rem', left: '5.5rem' } },
+  { id: '4', name: 'Malleus', img: '/Malleus.png', speech: { top: '3.5rem', left: '5.5rem' } },
+  { id: '5', name: 'Parmularius', img: '/Parmularius.png', speech: { top: '3.5rem', left: '5.5rem' } },
+  { id: '6', name: 'Retiarius', img: '/Retiarius.png', speech: { top: '3.5rem', left: '5.5rem' } },
+  { id: '7', name: 'Scutarius', img: '/Scutarius.png', speech: { top: '3.5rem', left: '5.5rem' } },
+  { id: '8', name: 'Velitus', img: '/Velitus.png', speech: { top: '3.5rem', left: '5.5rem' } },
 ]
 
 const TheCollection = () => (
@@ -52,13 +52,13 @@ const TheCollection = () => (
           <div className='p-2 text-white'>
             {quotes[i]}
           </div>
-          {/* <div */}
-          {/*   style={{ position: 'absolute', top: '3rem', left: '5.5rem' }} */}
-          {/*   className='w-4 h-4'> */}
-          {/*   <svg viewBox='0 0 100 100'> */}
-          {/*     <path d='M25,0 100,100' fill='none' stroke='white' strokeWidth='4' /> */}
-          {/*   </svg> */}
-          {/* </div> */}
+          <div
+            style={{ position: 'absolute', top: gladiator.speech.top, left: gladiator.speech.left }}
+            className='w-4 h-4'>
+            <svg viewBox='0 0 100 100'>
+              <path d='M25,0 Q50,75 100,100' fill='none' stroke='white' strokeWidth='4' />
+            </svg>
+          </div>
         </li>
         ))}
       </ul>
