@@ -1,19 +1,5 @@
 import type { NextPage } from 'next'
-
-// const pictures = [
-//   { id: '1' },
-//   { id: '2' },
-//   { id: '3' },
-//   { id: '4' },
-//   { id: '5' },
-//   { id: '6' },
-//   { id: '7' },
-//   { id: '8' },
-//   { id: '9' },
-//   { id: '10' },
-//   { id: '11' },
-//   { id: '12' },
-// ]
+import { useState } from 'react'
 
 const quotes = [
   'Closer now that I might slay thee!',
@@ -27,100 +13,226 @@ const quotes = [
   'An hearty helping of death for thee!',
 ]
 
-const gladiators = [
+type Gladiator = {
+  id: string
+  name: string
+  img: string
+  speech: {
+    top: string
+    left: string
+  }
+  details: string
+  selected: boolean
+  items: Item[]
+}
+
+type Item = {
+  name: string
+  img: string
+  details: string
+}
+
+const items: Item[] = [
+  { name: 'Bone Helmet', img: 'Male_Helmet_Bones_Flipped.png', details: 'some flavor text' },
+  { name: 'Dragon Hunter Armor', img: 'Dragon_Hunter_Green_Male.png', details: 'some flavor text' },
+  { name: 'Poseidon\'s Trident', img: 'Male__0000s_0014_Poseidons-Trident.png', details: 'some flavor text' },
+  { name: 'Blackhawk Saber', img: 'Male__0000s_0026_Blackhawk-Saber.png', details: 'some flavor text' },
+  { name: 'Dwarven Axe', img: 'Male__0000s_0009_Dwarven-axe.png', details: 'some flavor text' },
+  { name: 'Griffon Shield', img: 'Male__0000s_0018_Griffon-Shield.png', details: 'some flavor text' },
+]
+
+const gladiatorsList: Gladiator[] = [
   {
     id: '1',
     name: 'Dimachaerus',
     img: '/Dimachaerus.png',
     speech: { top: '3.5rem', left: '5.5rem' },
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    selected: false,
+    items,
   },
   {
     id: '2',
     name: 'Gladiatrix',
     img: '/Gladiatrix.png',
     speech: { top: '4rem', left: '4.5rem' },
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    selected: false,
+    items,
   },
   {
     id: '3',
     name: 'Laquearius',
     img: '/Laquearius.png',
     speech: { top: '3.5rem', left: '5.5rem' },
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    selected: false,
+    items,
   },
   {
     id: '4',
     name: 'Malleus',
     img: '/Malleus.png',
     speech: { top: '3.5rem', left: '5.5rem' },
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    selected: false,
+    items,
   },
   {
     id: '5',
     name: 'Parmularius',
     img: '/Parmularius.png',
     speech: { top: '3.5rem', left: '5.5rem' },
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    selected: false,
+    items,
   },
   {
     id: '6',
     name: 'Retiarius',
     img: '/Retiarius.png',
     speech: { top: '3.5rem', left: '5.5rem' },
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    selected: false,
+    items,
   },
   {
     id: '7',
     name: 'Scutarius',
     img: '/Scutarius.png',
     speech: { top: '3.5rem', left: '5.5rem' },
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    selected: false,
+    items,
   },
   {
     id: '8',
     name: 'Velitus',
     img: '/Velitus.png',
     speech: { top: '3.5rem', left: '5.5rem' },
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    selected: false,
+    items,
   },
 ]
 
-const TheCollection = () => (
-  <div className='flex flex-col items-center justify-center'>
-    <h2 className='text-white text-5xl lg:text-7xl font-bold text-center' style={{ textShadow: '0 0 10px black' }}>THE COLLECTION</h2>
+const animateGladiator = (gladiator: Gladiator, gladiators: Gladiator[], _target: EventTarget, setGladiators: React.Dispatch<React.SetStateAction<Gladiator[]>>) => {
+  setGladiators(gladiators.map(x => {
+    return {
+      ...x,
+      selected: (x.id === gladiator.id) ? !x.selected : false
+    }
+  }))
+}
 
-    <div className='mt-24 lg:mt-48 w-full max-w-screen-xl'>
-      <ul className='px-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center gap-4 lg:gap-8 items-center'>
-        {gladiators.map((gladiator, i) => (
-        <li
-          key={gladiator.id}
-          className='group bg-gray-500 w-full max-w-xs mx-auto h-96 rounded relative overflow-hidden'
-          style={{ backgroundImage: `url("${gladiator.img}")`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-          <div className='p-2 text-white'>
-            {quotes[i]}
-          </div>
-          <div
-            style={{ position: 'absolute', top: gladiator.speech.top, left: gladiator.speech.left }}
-            className='w-4 h-4'>
-            <svg viewBox='0 0 100 100'>
-              <path d='M25,0 Q50,75 100,100' fill='none' stroke='white' strokeWidth='4' />
-            </svg>
-          </div>
+const TheCollection = () => {
+  const [gladiators, setGladiators] = useState(gladiatorsList)
 
-          <div
-            style={{ backgroundImage: 'url(cardback.jpg)' }}
-            className='absolute inset-0 px-12 py-9 bg-gray-900 bg-contain font-semibold bg-center bg-no-repeat duration-200 transform translate-y-full group-hover:translate-y-0'>
-            <div className='overflow-auto overscroll-none leading-none h-full w-full'>
-              {gladiator.details}
+  const selectedGladiator = gladiators.find(x => x.selected)
+
+  return (
+    <div className='flex flex-col items-center justify-center'>
+      <h2 className='text-white text-5xl lg:text-7xl font-bold text-center' style={{ textShadow: '0 0 10px black' }}>THE COLLECTION</h2>
+
+      <div className='mt-24 lg:mt-48 w-full max-w-screen-xl'>
+        {<ul className='px-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center gap-4 lg:gap-8 items-center'>
+          {gladiators.map((gladiator, i) => (
+          <li
+            key={gladiator.id}
+            className='bg-gray-500 w-full max-w-xs mx-auto h-96 rounded relative'
+            onClick={evt => animateGladiator(gladiator, gladiators, evt.target, setGladiators)}
+            style={{ backgroundImage: `url("${gladiator.img}")`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className='p-2 text-white'>
+              {quotes[i]}
+            </div>
+
+            <div
+              style={{ position: 'absolute', top: gladiator.speech.top, left: gladiator.speech.left }}
+              className='w-4 h-4'>
+              <svg viewBox='0 0 100 100'>
+                <path d='M25,0 Q50,75 100,100' fill='none' stroke='white' strokeWidth='4' />
+              </svg>
+            </div>
+
+            {/* SPEECH BUBBLES */}
+            {/* {gladiator.selected && ( */}
+            {/* <div className='absolute -top-40 z-10 rounded bg-yellow-200 border border-solid border-black p-2 text-black text-xs tracking-widest'> */}
+            {/*   {gladiator.details} */}
+            {/*   <svg className='w-4 h-4 text-yellow-200 absolute inset-x-1/3 -bottom-4' viewBox='0 0 100 100'> */}
+            {/*     <polygon points='0 0 100 0 50 100' fill='currentColor' /> */}
+            {/*   </svg> */}
+            {/* </div> */}
+            {/* )} */}
+            {/* {gladiator.selected && ( */}
+            {/* <div className='absolute w-3/4 -left-60 z-10 rounded bg-yellow-200 border border-solid border-black p-2 text-black text-xs tracking-widest'> */}
+            {/*   {gladiator.details} */}
+            {/*   <svg className='w-4 h-4 text-yellow-200 absolute inset-y-1/3 -right-4' viewBox='0 0 100 100'> */}
+            {/*     <polygon points='0 0 0 100 100 50' fill='currentColor' /> */}
+            {/*   </svg> */}
+            {/* </div> */}
+            {/* )} */}
+            {/* {gladiator.selected && ( */}
+            {/* <div className='absolute w-3/4 -right-60 z-10 rounded bg-yellow-200 border border-solid border-black p-2 text-black text-xs tracking-widest'> */}
+            {/*   {gladiator.details} */}
+            {/*   <svg className='w-4 h-4 text-yellow-200 absolute inset-y-3/4 -left-4' viewBox='0 0 100 100'> */}
+            {/*     <polygon points='100 0 100 100 0 50' fill='currentColor' /> */}
+            {/*   </svg> */}
+            {/* </div> */}
+            {/* )} */}
+
+            {/* CARD BACK */}
+            {/* <div */}
+            {/*   style={{ backgroundImage: 'url(cardback.jpg)' }} */}
+            {/*   className='absolute inset-0 px-12 py-9 bg-gray-900 bg-contain font-semibold bg-center bg-no-repeat duration-200 transform translate-y-full group-hover:translate-y-0'> */}
+            {/*   <div className='overflow-auto overscroll-none leading-none h-full w-full'> */}
+            {/*     {gladiator.details} */}
+            {/*   </div> */}
+            {/* </div> */}
+          </li>
+          ))}
+        </ul>}
+      </div>
+
+      {selectedGladiator && (
+      <div
+        onClick={evt => animateGladiator(selectedGladiator, gladiators, evt.target, setGladiators)}
+        className='fixed inset-0 flex justify-center items-center'>
+        <div className='absolute inset-0 bg-black opacity-60'></div>
+        <div
+          style={{ maxHeight: '90vh' }}
+          onClick={evt => evt.stopPropagation()}
+          className='max-w-screen-md overflow-auto p-8 bg-gray-800 text-gray-200 rounded shadow-2xl relative z-10'>
+          <h2 className='text-center text-5xl'>{selectedGladiator.name}</h2>
+
+          <div className='flex items-center'>
+            <div className='w-1/2'>
+              <img src={selectedGladiator.img} />
+            </div>
+            <div className='w-1/2'>
+              {selectedGladiator.details}
             </div>
           </div>
-        </li>
-        ))}
-      </ul>
+
+          {selectedGladiator?.items?.map(x => (
+          <>
+          <hr className='border-gray-400 py-4' />
+          <div className='flex items-center'>
+            <div className='w-1/2'>
+              {x.name}
+              <img className='w-1/2' src={x.img} />
+            </div>
+            <div className='w-1/2'>
+              {x.details}
+            </div>
+          </div>
+          </>
+          ))}
+        </div>
+      </div>
+      )}
     </div>
-  </div>
-)
+  )
+}
 
 const TheLore = () => (
   <div>
