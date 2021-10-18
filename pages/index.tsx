@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const quotes = [
   'Closer now that I might slay thee!',
@@ -235,7 +235,7 @@ const TheCollection = () => {
           </div>
 
           {selectedGladiator?.items?.map(x => (
-          <>
+          <React.Fragment key={x.name}>
           <hr className='border-gray-400 py-4 mt-8' />
 
           <div className='flex flex-col sm:flex-row items-center'>
@@ -247,7 +247,7 @@ const TheCollection = () => {
               {x.details}
             </div>
           </div>
-          </>
+          </React.Fragment>
           ))}
         </div>
       </div>
