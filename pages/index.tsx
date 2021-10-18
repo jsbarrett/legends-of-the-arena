@@ -41,13 +41,36 @@ const items: Item[] = [
   { name: 'Griffon Shield', img: 'Male__0000s_0018_Griffon-Shield.png', details: 'some flavor text' },
 ]
 
+const replaceSquareBrackets = (str: string) => str.replace(/\[(.*?)\]/g, (_, x) => {
+  return `<span class="italic">${x}</span>`
+})
+const replaceCurlyBraces = (name: string) => (str: string) => {
+  return str.replace(/{(.*?)}/g, (_, x) => {
+    switch (name) {
+      case 'Gaia': return x.split('/')[1]
+      case 'Paulla': return x.split('/')[1]
+      default: return x.split('/')[0]
+    }
+  })
+}
+const replaceAngleBrackets = (str: string) => {
+  return str.replace(/<(.*?)>/g, (_, x) => {
+    const percent = Math.random() * 100
+
+    return (percent < 85)
+      ? x.split('/')[0]
+      : x.split('/')[1]
+  })
+}
+const parseDetails = (gladiator: Gladiator) => replaceCurlyBraces(gladiator.name)(replaceSquareBrackets(replaceAngleBrackets(gladiator.details)))
+
 const gladiatorsList: Gladiator[] = [
   {
     id: '1',
     name: 'Dimachaerus',
     img: '/Dimachaerus.png',
     speech: { top: '3.5rem', left: '5.5rem' },
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    details: 'By statute, the bearer of this shield is entitled to one (1) [round] table, an idealistic personal code, and {his/her} own personal franchise, redeemable upon death. For convenience it also comes with a burial plot at Glastonbury, or possibly not.',
     selected: false,
     items,
   },
@@ -56,7 +79,7 @@ const gladiatorsList: Gladiator[] = [
     name: 'Gladiatrix',
     img: '/Gladiatrix.png',
     speech: { top: '4rem', left: '4.5rem' },
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    details: 'Art a weak <fellow/damsel> of nae conviction nor honor.',
     selected: false,
     items,
   },
@@ -201,27 +224,26 @@ const TheCollection = () => {
         <div
           style={{ maxHeight: '90vh' }}
           onClick={evt => evt.stopPropagation()}
-          className='max-w-screen-md overflow-auto p-8 bg-gray-800 text-gray-200 rounded shadow-2xl relative z-10'>
+          className='max-w-screen-md overflow-auto p-8 bg-gray-800 text-gray-200 rounded shadow-2xl relative z-10 mx-2'>
           <h2 className='text-center text-5xl'>{selectedGladiator.name}</h2>
 
-          <div className='flex items-center'>
-            <div className='w-1/2'>
+          <div className='flex flex-col sm:flex-row items-center mt-4'>
+            <div className='w-full sm:w-1/2'>
               <img src={selectedGladiator.img} />
             </div>
-            <div className='w-1/2'>
-              {selectedGladiator.details}
-            </div>
+            <div className='w-full sm:w-1/2' dangerouslySetInnerHTML={{ __html: parseDetails(selectedGladiator) }}></div>
           </div>
 
           {selectedGladiator?.items?.map(x => (
           <>
-          <hr className='border-gray-400 py-4' />
-          <div className='flex items-center'>
-            <div className='w-1/2'>
+          <hr className='border-gray-400 py-4 mt-8' />
+
+          <div className='flex flex-col sm:flex-row items-center'>
+            <div className='w-full sm:w-1/2 text-center sm:text-left'>
               {x.name}
-              <img className='w-1/2' src={x.img} />
+              <img className='w-full sm:w-1/2' src={x.img} />
             </div>
-            <div className='w-1/2'>
+            <div className='w-full sm:w-1/2'>
               {x.details}
             </div>
           </div>
