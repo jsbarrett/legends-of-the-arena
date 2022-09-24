@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 if (!process.env.IMAGES_DIRECTORY) throw new Error('Please provide an IMAGES_DIRECTORY')
-if (!process.env.DISPLAY_NAME_CSV_PATH) throw new Error('Please provide an IMAGES_DIRECTORY')
+if (!process.env.DISPLAY_NAME_CSV_PATH) throw new Error('Please provide an DISPLAY_NAME_CSV_PATH')
 
 const IMAGES_DIRECTORY = process.env.IMAGES_DIRECTORY
 const DISPLAY_NAME_CSV_PATH = process.env.DISPLAY_NAME_CSV_PATH
